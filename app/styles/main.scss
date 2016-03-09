@@ -1,0 +1,151 @@
+// bower:scss
+// endbower
+
+// bower:scss
+// endbower
+/*--------------------
+Body
+--------------------*/
+@import url(https://fonts.googleapis.com/css?family=Oxygen);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+    font-family: 'Oxygen', sans-serif;
+  height: 100%;
+  background: #00a7e7 url(../images/bg.png);
+}
+/*--------------------
+Mixins
+--------------------*/
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*--------------------
+Wrapper
+--------------------*/
+.wrapper {
+  @include center;
+  width: 369px;
+  height: 547px;
+  font-family: 'Source Sans Pro', sans-serif;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) perspective(600px) rotateY(20deg) rotateX(10deg);
+}
+/*--------------------
+Me
+--------------------*/
+.picture {
+  position: relative;
+  width: 369px;
+  height: 547px;
+  transform: translateZ(80px) scale(.8);
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: url(../images/profile.png) no-repeat 0 0;
+    // background-color: #42a5f5;
+  }
+  &::after {
+    height: 30px;
+    top: auto;
+    bottom: -15px;
+    z-index: -1;
+    filter:blur(40px);
+    background-size: 100% 30px;
+    border-radius: 100px;
+  }
+
+}
+.glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 390px;
+  height: 595px;
+  transform: translateZ(150px) translateX(-11px) translateY(-26px) scale(.55);
+  border: 3px solid rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,0.36) 39%,rgba(255,255,255,0.07) 41%,rgba(255,255,255,0) 51%,rgba(0,0,0,1) 100%);
+  opacity: .5;
+  border-radius: 8px;
+  .text {
+      text-align: center;
+      font-size: 100px;
+      line-height: 900px;
+  }
+  &::after {
+    content: 'designer';
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    line-height: 1;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    text-indent: 20px;
+  }
+}
+
+.social-icon {
+
+    @include center;
+    padding-top: 580px;
+    .icons {
+        position: relative;
+        .icon {
+            display: inline-block;
+            width: 100px;
+
+            .st1 {
+                fill: #fff;
+            }
+            .st0 {
+                transition: all 0.2s ease-in-out;
+                fill: #ffca28;
+            }
+        }
+        .behance {
+            &:hover .st0 {
+                fill: #0077ff;
+            }
+        }
+        .dribbble {
+            &:hover .st0 {
+                fill: #ea4c89;
+            }
+        }
+        .github {
+            &:hover .st0 {
+                fill: #201f1f;
+            }
+        }
+        .linkedin {
+            &:hover .st0 {
+                fill: #0097bd;
+            }
+        }
+
+    }
+    .email {
+        text-align: center;
+    }
+
+}
